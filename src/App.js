@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import {Button} from 'react-materialize';
-import image from "./workhour1.jpg";
 class App extends Component {
 
-       handleOnClick=() => {
 
-            if (navigator.share) {
-              navigator.share({
-                title: 'web.dev',
-                text: 'Check out web.dev.',
+       async handleOnClick(){
+
+            if(navigator.share) {
+              await navigator.share({
+                title: 'Share',
+                text: 'Share application',
                 url: 'https://okcredit.in',
               })
                 .then(() => console.log('Successful share'))
-                .catch((error) => console.log('Error sharing', error));
+                .catch((error) => console.log('Error in sharing', error));
             }else {
-              console.log(`Your system doesn't support sharing files.`);
+              console.log(`system doesn't support sharing files.`);
             }
         }
 
