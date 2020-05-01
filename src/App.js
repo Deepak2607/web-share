@@ -8,12 +8,12 @@ class App extends Component {
             //     `https://api.whatsapp.com/send?text=Share%20on%20Whatsapp%20http%3A%2F%2Fhttps://okcredit.in%20`,
             //     "_blank"
             // )
-            const files = [image];
-            if (navigator.canShare && navigator.canShare({ files: files})){
+            // const files = [image];
+            if (navigator.canShare && navigator.canShare({ })){
                 navigator.share({
                         title: 'Vacation Pictures',
                         text: 'Photos from September 27 to October 14.',
-                        file: files,
+                        // file: files,
                     })
                     .then(() => console.log('Successful share'))
                     .catch((error) => console.log('Error sharing', error));
@@ -21,6 +21,16 @@ class App extends Component {
                 console.log("Web Share API is not supported in your browser.")
             }
         }
+
+        componentDidMount= ()=> {
+          if (navigator.share === undefined) {
+            if (window.location.protocol === 'http:') {
+              window.location.replace(window.location.href.replace(/^http:/, 'https:'));
+            } 
+          }
+        }
+
+
 
  
     render () {
