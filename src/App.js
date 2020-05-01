@@ -18,8 +18,8 @@ class App extends Component {
             //   console.log(`system doesn't support sharing files.`);
             // }
 
-
-            const files = [image]
+            const img = {image};
+            const files = [img];
             if (navigator.canShare && navigator.canShare({
                     files: files
                 })) {
@@ -32,7 +32,7 @@ class App extends Component {
                     .then(() => console.log('Successful share'))
                     .catch((error) => console.log('Error sharing', error));
             }else{
-                console.log("system doesn't support sharing files");
+                console.log("system doesn't support sharing files.");
             }
 
         }
