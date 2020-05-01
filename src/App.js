@@ -18,8 +18,7 @@ class App extends Component {
             //   console.log(`system doesn't support sharing files.`);
             // }
 
-            const img = {image};
-            const files = [img];
+            const files = [image];
             if (navigator.canShare && navigator.canShare({
                     files: files
                 })) {
