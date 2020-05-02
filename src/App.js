@@ -9,7 +9,7 @@ class App extends Component {
             if(navigator.share) {
               await navigator.share({
                 title: 'Share',
-                text: 'Download the app and buy anything from your nearby shops.',
+                text: 'Download the app and buy essential items from your nearby shops.',
                 url: 'https://okcredit.in',
               })
                 .then(() => console.log('Successful share'))
@@ -45,12 +45,27 @@ class App extends Component {
         }
 
     render () {
+
+    let style1={
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+            minHeight: "100vh",
+            }
+            
+    let style2= { 
+            marginBottom: "10px",
+            textAlign: "center",
+            marginRight: 30,
+            marginLeft: 30,
+            }
+
         return (
-            <div> 
-            <div className="container-fluid">
-            <Button node="a" style={{color:"white"}} waves="light" onClick={this.handleOnClick}>Share</Button>
-            </div>
-            </div>
+            <div style={style1}>
+            <div style={style2} className="container-fluid">
+            <Button node="a" style={{ color:"white"}} waves="light" onClick={this.handleOnClick}>Share</Button>
+            </div></div>
     );
   }  
 }
