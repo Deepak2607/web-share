@@ -75,7 +75,7 @@ class App extends Component {
         return (
             <div style={style1}>
             <div style={style2} className="container-fluid">
-            <Button node="a" style={{ color:"white"}} waves="light" onClick={this.handleOnClick}>Share</Button>
+            <Button node="a" style={{ color:"white"}} waves="light" onClick={this.handleOnClick}>Shar</Button>
             </div></div>
     );
   }  
