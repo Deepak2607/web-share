@@ -11,12 +11,23 @@ class App extends Component {
                 title: 'Share',
                 text: 'Download the app and buy essential items from your nearby shops.',
                 url: 'https://okcredit.in',
+                image: image, 
+                mimeType: 'image/png'
+                
               })
                 .then(() => console.log('Successful share'))
                 .catch((error) => console.log('Error in sharing', error));
             }else {
               console.log(`system does not support sharing files.`);
             }
+
+
+             // if (files && files.length > 0) {
+             //    if (!navigator.canShare || !navigator.canShare({files})) {
+             //      console.log('Error: Unsupported feature: navigator.canShare()');
+             //      return;
+             //    }
+             //  }
 
             // const files = [image];
             // if (navigator.canShare && navigator.canShare({
@@ -53,7 +64,7 @@ class App extends Component {
             flexDirection: "column",
             minHeight: "100vh",
             }
-            
+
     let style2= { 
             marginBottom: "10px",
             textAlign: "center",
