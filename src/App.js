@@ -35,7 +35,7 @@ class App extends Component {
             if (navigator.canShare && navigator.canShare({ files: filesArray })) {
                 await navigator.share({
                         title: 'Share',
-                        text: 'Download the app and buy anything from your nearby shops.',
+                        text: 'Download the app and buy essential items from your nearby shops.',
                         url: 'https://okcredit.in',
                         file: filesArray
                     })
