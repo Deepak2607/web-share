@@ -6,20 +6,18 @@ class App extends Component {
 
        async handleOnClick(){
 
-            if(navigator.share) {
-              await navigator.share({
-                title: 'Share',
-                text: 'Download the app and buy essential items from your nearby shops.',
-                url: 'https://okcredit.in',
-                image: image, 
-                mimeType: 'image/png'
-                
-              })
-                .then(() => console.log('Successful share'))
-                .catch((error) => console.log('Error in sharing', error));
-            }else {
-              console.log(`system does not support sharing files.`);
-            }
+            // if(navigator.share) {
+            //   await navigator.share({
+            //     title: 'Share',
+            //     text: 'Download the app and buy essential items from your nearby shops.',
+            //     url: 'https://okcredit.in',
+           
+            //   })
+            //     .then(() => console.log('Successful share'))
+            //     .catch((error) => console.log('Error in sharing', error));
+            // }else {
+            //   console.log(`system does not support sharing files.`);
+            // }
 
 
              // if (files && files.length > 0) {
@@ -29,24 +27,26 @@ class App extends Component {
              //    }
              //  }
 
-            // const files = [image];
-            // if (navigator.canShare && navigator.canShare({
-            //         files: files
-            //     })) {
-            //     await navigator.share({
-            //             title: 'Share',
-            //             text: 'Download the app and buy anything from your nearby shops.',
-            //             url: 'https://okcredit.in',
-            //             file: files,
-            //         })
-            //         .then(() => console.log('Successful share'))
-            //         .catch((error) => console.log('Error sharing', error));
-            // }else{
-            //     console.log("system doesn't support sharing files");
-            // }
+            var file = new File(['okcredit'], './okcredit.jpeg', {type:'image/jpg'});
+            console.log(file);
+            let filesArray = [];
+            filesArray.push(file);
 
+            if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+                await navigator.share({
+                        title: 'Share',
+                        text: 'Download the app and buy anything from your nearby shops.',
+                        url: 'https://okcredit.in',
+                        file: filesArray
+                    })
+                    .then(() => console.log('Successful share'))
+                    .catch((error) => console.log('Error sharing', error));
+            }else{
+                console.log("system doesn't support sharing files");
+            }
+            
         }
-
+         
         componentDidMount= ()=> {
           if (navigator.share === undefined) {
             if (window.location.protocol === 'http:') {
@@ -75,7 +75,7 @@ class App extends Component {
         return (
             <div style={style1}>
             <div style={style2} className="container-fluid">
-            <Button node="a" style={{ color:"white"}} waves="light" onClick={this.handleOnClick}>Shar</Button>
+            <Button node="a" style={{ color:"white"}} waves="light" onClick={this.handleOnClick}>Share</Button>
             </div></div>
     );
   }  
