@@ -6,12 +6,12 @@ class App extends Component {
        async handleOnClick(){
 
             const image_url = "https://image-okc.s3.ap-south-1.amazonaws.com/share-okc-image.jpg";
+            const response = await fetch(image_url);
+            const blob = await response.blob();
+            const file = new File([blob], 'share-okc-image.jpg', {type: blob.type});
+            console.log(file);
         
             if(navigator.share) {
-              const response = await fetch(image_url);
-              const blob = await response.blob();
-              const file = new File([blob], 'share-okc-image.jpg', {type: blob.type});
-              console.log(file);
               await navigator.share({
                 title: 'Share',
                 text: 'Download the app and buy essential items from your nearby shops.',
