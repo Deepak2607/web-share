@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import {Button} from 'react-materialize';
+import image from "./share.jpg";
 class App extends Component {
 
 
        async handleOnClick(){
 
-            const image_url = "https://image-okc.s3.ap-south-1.amazonaws.com/share-okc-image.jpg";
-            const response = await fetch(image_url);
+            const response = await fetch(image);
             const blob = await response.blob();
-            const file = new File([blob], 'share-okc-image.jpg', {type: blob.type});
+            const file = new File([blob], 'share.jpg', {type: blob.type});
             console.log(file);
         
             if(navigator.share) {
