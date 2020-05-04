@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import {Button} from 'react-materialize';
-import image from './okcredit.jpeg';
 class App extends Component {
 
 
        async handleOnClick(){
 
-            const image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Rick_Astley_Dallas.jpg/267px-Rick_Astley_Dallas.jpg";
+            const image_url = "./share.jpg";
         
             if(navigator.share) {
               const response = await fetch(image_url);
               const blob = await response.blob();
-              const file = new File([blob], 'rick.jpg', {type: blob.type});
+              const file = new File([blob], 'share.jpg', {type: blob.type});
               console.log(file);
               await navigator.share({
                 title: 'Share',
@@ -24,14 +23,6 @@ class App extends Component {
             }else {
               console.log(`system does not support sharing files.`);
             }
-
-
-             // if (files && files.length > 0) {
-             //    if (!navigator.canShare || !navigator.canShare({files})) {
-             //      console.log('Error: Unsupported feature: navigator.canShare()');
-             //      return;
-             //    }
-             //  }
 
             // var file = new File(['okcredit'], './okcredit.jpeg', {type:'image/jpg'});
             // console.log(file);
@@ -81,7 +72,7 @@ class App extends Component {
         return (
             <div style={style1}>
             <div style={style2} className="container-fluid">
-            <Button node="a" style={{ color:"white"}} waves="light" onClick={this.handleOnClick}>Shar</Button>
+            <Button node="a" style={{ color:"white"}} waves="light" onClick={this.handleOnClick}>Share</Button>
             </div></div>
     );
   }  
