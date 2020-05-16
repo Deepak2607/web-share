@@ -26,14 +26,15 @@ const App = () =>{
             // const blob = await response.blob();
             // const file = new File([blob], 'share.jpg', {type: blob.type});
             // console.log(file);
-
+            const files = [file];
             if(navigator.share) {
-              await navigator.share({
-                title: title,
-                text: text,
-                url: url,
-                files: [file]     
-              })
+              // await navigator.share({
+              //   title: title,
+              //   text: text,
+              //   url: url,
+              //   files: [file]     
+              // })
+              await navigator.share({files, title, text, url})
                 .then(() => console.log('Successful share'))
                 .catch((error) => console.log('Error in sharing', error));
             }else {
@@ -85,7 +86,7 @@ const App = () =>{
               <span><TextInput id="1" value={title} onChange={handleTitle} label="Title" /></span>         
               <span><TextInput id="2" value={text} onChange={handleText} label="Text" /></span>
               <span><TextInput id="3" value={url} onChange={handleUrl} label="Url" /></span>
-              <span><TextInput id="4" onChange={handleFile} label="File" type="file" accept="image/*" /></span>
+              <span><TextInput id="4" onChange={handleFile} label="File" type="file" accept="image/*" multiple /></span>
               <Button node="a" style={{ color:"white"}} waves="light" onClick={handleOnSubmit} >Share</Button>
               </Card>
               </div>
