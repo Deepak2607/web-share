@@ -27,11 +27,6 @@ const App = () =>{
             // const file = new File([blob], 'share.jpg', {type: blob.type});
             // console.log(file);
 
-            console.log(title);
-            console.log(text);
-            console.log(url);
-            console.log(file);
-
             if(navigator.share) {
               await navigator.share({
                 title: title,
