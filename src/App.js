@@ -69,15 +69,19 @@ const App = () =>{
         let style3= {
           color:"lightseagreen"
         }
+        let style4= {
+          marginTop:"4%"
+        }
 
         return (
             <div>
             <div className="container-fluid">
             <div className="row">
               <div className="col-md-4"></div>
-              <div className="col-md-4">
+              <div style={style4} className="col-md-4">
               <Card>
-              <h4 style={style3}>Share on any social platform</h4>
+              <h5 style={style3}>Share on any social platform</h5>
+              <h6 style={style3}>(Supported in android & ios phones)</h6>
               <TextInput value={title} onChange={handleTitle} label="Title" />
               <TextInput value={text} onChange={handleText} label="Text" />
               <TextInput value={url} onChange={handleUrl} label="Url" />
