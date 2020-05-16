@@ -27,6 +27,11 @@ const App = () =>{
             // const file = new File([blob], 'share.jpg', {type: blob.type});
             // console.log(file);
 
+            console.log(title);
+            console.log(text);
+            console.log(url);
+            console.log(file);
+
             if(navigator.share) {
               await navigator.share({
                 title: title,
@@ -82,10 +87,10 @@ const App = () =>{
               <Card>
               <h5 style={style3}>Share on any social platform</h5>
               <h6 style={style3}>(Supported in android & ios phones)</h6>
-              <TextInput id="1" value={title} onChange={handleTitle} label="Title" />
-              <TextInput id="2" value={text} onChange={handleText} label="Text" />
-              <TextInput id="3" value={url} onChange={handleUrl} label="Url" />
-              <TextInput id="4" onChange={handleFile} label="File" type="file" />
+              <span><TextInput id="1" value={title} onChange={handleTitle} label="Title" /></span>         
+              <span><TextInput id="2" value={text} onChange={handleText} label="Text" /></span>
+              <span><TextInput id="3" value={url} onChange={handleUrl} label="Url" /></span>
+              <span><TextInput id="4" onChange={handleFile} label="File" type="file" accept="image/*" /></span>
               <Button node="a" style={{ color:"white"}} waves="light" onClick={handleOnSubmit} >Share</Button>
               </Card>
               </div>
