@@ -17,7 +17,7 @@ const App = () =>{
         setUrl(event.target.value);
        }
        const handleFile= (event)=>{
-        setFile(event.target.files[0]);
+        setFile(event.target.files);
        }
       
        const handleOnSubmit= async()=>{
@@ -42,13 +42,13 @@ const App = () =>{
             }
         }
          
-        useEffect(()=> {
-          if (navigator.share === undefined) {
-            if (window.location.protocol === 'http:') {
-              window.location.replace(window.location.href.replace(/^http:/, 'https:'));
-            } 
-          }
-        }, []);
+        // useEffect(()=> {
+        //   if (navigator.share === undefined) {
+        //     if (window.location.protocol === 'http:') {
+        //       window.location.replace(window.location.href.replace(/^http:/, 'https:'));
+        //     } 
+        //   }
+        // }, []);
 
         // let style1={
         // display: "flex",
