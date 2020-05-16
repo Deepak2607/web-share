@@ -19,8 +19,8 @@ const App = () =>{
        const handleFile= (event)=>{
         setFile(event.target.files[0]);
        }
-
-       async function handleOnSubmit(){
+      
+       const handleOnSubmit= async()=>{
 
             // const response = await fetch(image);
             // const blob = await response.blob();
@@ -40,7 +40,6 @@ const App = () =>{
             }else {
               console.log(`system does not support sharing files.`);
             }
-       
         }
          
         useEffect(()=> {
@@ -51,7 +50,6 @@ const App = () =>{
           }
         }, []);
 
-   
         // let style1={
         // display: "flex",
         // alignItems: "center",
@@ -67,10 +65,10 @@ const App = () =>{
         // marginLeft: 30,
         // }
 
-        let style3= {
+        const style3= {
           color:"lightseagreen"
         }
-        let style4= {
+        const style4= {
           marginTop:"4%"
         }
 
