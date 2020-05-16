@@ -82,10 +82,10 @@ const App = () =>{
               <Card>
               <h5 style={style3}>Share on any social platform</h5>
               <h6 style={style3}>(Supported in android & ios phones)</h6>
-              <TextInput value={title} onChange={handleTitle} label="Title" />
-              <TextInput value={text} onChange={handleText} label="Text" />
-              <TextInput value={url} onChange={handleUrl} label="Url" />
-              <TextInput onChange={handleFile} label="File" type="file" />
+              <TextInput id="1" value={title} onChange={handleTitle} label="Title" />
+              <TextInput id="2" value={text} onChange={handleText} label="Text" />
+              <TextInput id="3" value={url} onChange={handleUrl} label="Url" />
+              <TextInput id="4" onChange={handleFile} label="File" type="file" />
               <Button node="a" style={{ color:"white"}} waves="light" onClick={handleOnSubmit} >Share</Button>
               </Card>
               </div>
