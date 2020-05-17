@@ -26,15 +26,17 @@ const App = () =>{
             // const blob = await response.blob();
             // const file = new File([blob], 'share.jpg', {type: blob.type});
             // console.log(file);
-            const files = [file];
-            if(navigator.share) {
+            if(navigator.share){
               // await navigator.share({
               //   title: title,
               //   text: text,
               //   url: url,
               //   files: [file]     
               // })
-              await navigator.share({files, title, text, url})
+              const files = [file];
+              const url_ = url.replace('https://web-share-2607.netlify.app/','');
+              
+              await navigator.share({files, title, text, url_})
                 .then(() => console.log('Successful share'))
                 .catch((error) => console.log('Error in sharing', error));
             }else {
