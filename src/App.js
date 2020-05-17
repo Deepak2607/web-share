@@ -4,7 +4,7 @@ const App = () =>{
 
        const [title, setTitle] = useState();
        const [text, setText] = useState();
-       const [url, setUrl]= useState();
+       const [link, setLink]= useState();
        const [file, setFile] = useState();
 
        const handleTitle= (event)=>{
@@ -13,8 +13,8 @@ const App = () =>{
        const handleText= (event)=>{
         setText(event.target.value);
        }
-       const handleUrl= (event)=>{
-        setUrl(event.target.value);
+       const handleLink= (event)=>{
+        setLink(event.target.value);
        }
        const handleFile= (event)=>{
         setFile(event.target.files[0]);
@@ -26,6 +26,7 @@ const App = () =>{
             // const blob = await response.blob();
             // const file = new File([blob], 'share.jpg', {type: blob.type});
             // console.log(file);
+            const files = [file];
             if(navigator.share){
               // await navigator.share({
               //   title: title,
@@ -33,10 +34,7 @@ const App = () =>{
               //   url: url,
               //   files: [file]     
               // })
-              const files = [file];
-              const url_ = url.replace('https://web-share-2607.netlify.app/','');
-              
-              await navigator.share({files, title, text, url_})
+              await navigator.share({files, title, text, link})
                 .then(() => console.log('Successful share'))
                 .catch((error) => console.log('Error in sharing', error));
             }else {
@@ -85,7 +83,7 @@ const App = () =>{
               <h6 style={style3}>(Supported in android & ios phones)</h6>
               <span><TextInput id="1" value={title} onChange={handleTitle} label="Title" /></span>         
               <span><TextInput id="2" value={text} onChange={handleText} label="Text" /></span>
-              <span><TextInput id="3" value={url} onChange={handleUrl} label="Url" /></span>
+              <span><TextInput id="3" value={link} onChange={handleLink} label="Url" /></span>
               <span><TextInput id="4" onChange={handleFile} label="File" type="file" accept="image/*" /></span>
               <Button node="a" style={{ color:"white"}} waves="light" onClick={handleOnSubmit} >Share</Button>
               </Card>
