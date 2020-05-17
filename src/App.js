@@ -42,13 +42,13 @@ const App = () =>{
             }
         }
          
-        // useEffect(()=> {
-        //   if (navigator.share === undefined) {
-        //     if (window.location.protocol === 'http:') {
-        //       window.location.replace(window.location.href.replace(/^http:/, 'https:'));
-        //     } 
-        //   }
-        // }, []);
+        useEffect(()=> {
+          if (navigator.share === undefined) {
+            if (window.location.protocol === 'http:') {
+              window.location.replace(window.location.href.replace(/^http:/, 'https:'));
+            } 
+          }
+        }, []);
 
         // let style1={
         // display: "flex",
@@ -96,5 +96,4 @@ const App = () =>{
 }
 
 export default App;
-
 
