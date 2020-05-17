@@ -17,7 +17,7 @@ const App = () =>{
         setUrl(event.target.value);
        }
        const handleFile= (event)=>{
-        setFile(event.target.files);
+        setFile(event.target.files[0]);
        }
       
        const handleOnSubmit= async()=>{
@@ -84,7 +84,7 @@ const App = () =>{
               <span><TextInput id="1" value={title} onChange={handleTitle} label="Title" /></span>         
               <span><TextInput id="2" value={text} onChange={handleText} label="Text" /></span>
               <span><TextInput id="3" value={url} onChange={handleUrl} label="Url" /></span>
-              <span><TextInput id="4" onChange={handleFile} label="File" type="file" accept="image/*" multiple /></span>
+              <span><TextInput id="4" onChange={handleFile} label="File" type="file" accept="image/*" /></span>
               <Button node="a" style={{ color:"white"}} waves="light" onClick={handleOnSubmit} >Share</Button>
               </Card>
               </div>
