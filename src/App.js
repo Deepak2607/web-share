@@ -26,15 +26,15 @@ const App = () =>{
             // const blob = await response.blob();
             // const file = new File([blob], 'share.jpg', {type: blob.type});
             // console.log(file);
-            const files = [file];
+            // const files = [file];
             if(navigator.share){
-              // await navigator.share({
-              //   title: title,
-              //   text: text,
-              //   url: url,
-              //   files: [file]     
-              // })
-              await navigator.share({files, title, text, link})
+              console.log(link);
+              await navigator.share({
+                title: title,
+                text: text,
+                url: link,
+                files: [file]     
+              })
                 .then(() => console.log('Successful share'))
                 .catch((error) => console.log('Error in sharing', error));
             }else {
